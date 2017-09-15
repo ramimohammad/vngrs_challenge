@@ -2,7 +2,7 @@
 1.docker-compose build
 2.docker-compose up -d
 
-##Some useful commands to run a dockerfile without using docker-compose ##
+##Some useful commands to run your dockerfile without using docker-compose , but you have to set your db connection settings manually ##
 1.docker build -t anynameyouwant .
 2.docker run -d -p 3000:3000 anynameyouwant
 3.type this generated link in your browser :
