@@ -1,0 +1,29 @@
+version: '2'
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: dockerfile
+    depends_on:
+      - dbserver
+    links:
+      - dbserver
+    environment:
+      MYSQL_USERNAME: "newuser"
+      MYSQL_PASSWORD: "test123test"
+      MYSQL_INSTANCE_NAME: "newdb"
+      MYSQL_PORT_3306_TCP_ADDR: dbserver
+      MYSQL_PORT_3306_TCP_PORT: "3306"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app/
+  dbserver: 
+    image: "mysql:latest" 
+    environment: 
+      MYSQL_DATABASE: "newdb"
+      MYSQL_PASSWORD: "test123test"
+      MYSQL_ROOT_PASSWORD: "MyNewPass"
+      MYSQL_USER: "newuser"
+    ports: 
+      - "3306:3306"
