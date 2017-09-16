@@ -2,6 +2,11 @@
 1.docker-compose build
 2.docker-compose up -d
 
+## important notes ##
+
+#you can access your code in "app" container from your current directory.
+#If you want to see the reflections of any change in code just type :
+  1. docker-compose stop app / 2. docker-compose start app
 
 
 
